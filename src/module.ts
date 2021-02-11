@@ -10,6 +10,12 @@ export const plugin = new PanelPlugin<SimpleOptions>(RemotePagePanel).setPanelOp
       description: 'please input your remote page url',
       defaultValue: 'http://www.bing.com',
     })
+    .addTextInput({
+      path: 'vars',
+      name: 'Variables allow to apply',
+      description: 'if * will allow all applies, otherwise will only apply the configurated, mutil values will split with ","',
+      defaultValue: '*',
+    })
     .addBooleanSwitch({
       path: 'showSeriesCount',
       name: 'Show series counter',
