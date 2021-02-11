@@ -1,14 +1,14 @@
 import { PanelPlugin } from '@grafana/data';
 import { SimpleOptions } from './types';
-import { SimplePanel } from './SimplePanel';
+import { RemotePagePanel } from './RemotePagePanel';
 
-export const plugin = new PanelPlugin<SimpleOptions>(SimplePanel).setPanelOptions(builder => {
+export const plugin = new PanelPlugin<SimpleOptions>(RemotePagePanel).setPanelOptions(builder => {
   return builder
     .addTextInput({
-      path: 'text',
-      name: 'Simple text option',
-      description: 'Description of panel option',
-      defaultValue: 'Default value of text input option',
+      path: 'src',
+      name: 'Remote Page URL',
+      description: 'please input your remote page url',
+      defaultValue: 'http://www.bing.com',
     })
     .addBooleanSwitch({
       path: 'showSeriesCount',
