@@ -13,34 +13,7 @@ export const plugin = new PanelPlugin<SimpleOptions>(RemotePagePanel).setPanelOp
     .addTextInput({
       path: 'vars',
       name: 'Variables allow to apply',
-      description: 'if * will allow all applies, otherwise will only apply the configurated, mutil values will split with ","',
-      defaultValue: '*',
+      description: 'Only configured variables can be apply from remote page "postMessage"',
+      defaultValue: '',
     })
-    .addBooleanSwitch({
-      path: 'showSeriesCount',
-      name: 'Show series counter',
-      defaultValue: false,
-    })
-    .addRadio({
-      path: 'seriesCountSize',
-      defaultValue: 'sm',
-      name: 'Series counter size',
-      settings: {
-        options: [
-          {
-            value: 'sm',
-            label: 'Small',
-          },
-          {
-            value: 'md',
-            label: 'Medium',
-          },
-          {
-            value: 'lg',
-            label: 'Large',
-          },
-        ],
-      },
-      showIf: config => config.showSeriesCount,
-    });
 });
