@@ -8,6 +8,11 @@ interface Props extends PanelProps<SimpleOptions> { }
 export const RemotePagePanel: React.FC<Props> = ({ options, data, width, height }) => {
 
   window.addEventListener("message", (event) => {
+    var forwardParam = event.data["forwardParam"]
+    if (forwardParam && options.redirectUrl) {
+      window.open(options.redirectUrl+forwardParam,options.redirectTarget)
+      return
+    }
     var vars = options.vars;
     if (vars.trim() != "") {
       var ns = vars.split(",")

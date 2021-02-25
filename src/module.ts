@@ -16,4 +16,24 @@ export const plugin = new PanelPlugin<SimpleOptions>(RemotePagePanel).setPanelOp
       description: 'Only configured variables can be apply from remote page "postMessage"',
       defaultValue: '',
     })
+    .addTextInput({
+      path: 'redirectUrl',
+      name: 'Redirect URL',
+      description: 'if remote page post data with "forwardParam", this action will be trigger',
+      defaultValue: '',
+    })
+    .addSelect({
+      showIf: o=>o.redirectUrl!=undefined && o.redirectUrl!="",
+      path:"redirectTarget",
+      name:"Redirect Target",
+      settings:{
+        options:[
+          {label:"_blank",value:"_blank"},
+          {label:"_self",value:"_self"},
+          // {label:"_parent",value:"_parent"},
+          // {label:"_top",value:"_top"}
+        ]
+      },
+      defaultValue:"_blank"
+    })
 });
